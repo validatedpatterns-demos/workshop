@@ -1,7 +1,7 @@
 clusters_count: 1
-aws_region: "eu-west-3"
-ocp_version: "stable-4.11"
-clusters_prefix: "vp-workshop-"
+aws_region: "us-west-2"
+ocp_version: "stable-4.15"
+clusters_prefix: "vp-wkshp"
 # Use ansible_user_id so that it points to the user home even when using become: true
 workshop_output_path: "/home/{{ ansible_user_id }}/vp-workshop-output"
 # Where all the openshift install output files live
@@ -17,13 +17,13 @@ pull_secrets_file: ~/.pullsecret.json
 cluster_password_file: ~/.vp_workshop_common_pass
 
 # Cluster sizing overrides
-compute_replicas: 2
+compute_replicas: 0
 compute_type: m5.xlarge
 controlplane_replicas: 3
-controlplane_type: m5.xlarge
+controlplane_type: m5.2xlarge
 
 cluster_network_cidr: 10.128.0.0/14
 cluster_network_hostprefix: 23
 machine_network_cidr: 10.0.0.0/16
-network_type: OpenShiftSDN
+network_type: OVNKubernetes
 service_network: 172.30.0.0/16
